@@ -1,20 +1,17 @@
-import Nav from "@/components/nav";
+import { Nav, SignInWithGoogleButton } from "@/components";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="w-screen h-screen">
       <Nav />
-      <div className="flex justify-center items-center w-screen h-screen">
+      <div className="flex justify-center items-center">
         <div>
           <h1 className="text-[300px]">Offerly</h1>
           <div className="ml-10">
             <p className="text-xl">
-              Your one stop shop for interview managermnet and preperation
+              Your one stop shop for interview management and preparation
             </p>
-            <button className="border border-solid mt-10 px-4 py-2 text-xl rounded-md">
-              {" "}
-              Sign In
-            </button>
+            <SignInWithGoogleButton />
           </div>
         </div>
       </div>
