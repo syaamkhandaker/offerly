@@ -11,7 +11,9 @@ export default function Home() {
             <p className="text-xl">
               Your one stop shop for interview management and preparation
             </p>
-            <SignInWithGoogleButton />
+            <div className="mt-10">
+              <SignInWithGoogleButton />
+            </div>
           </div>
         </div>
       </div>
