@@ -2,8 +2,10 @@ import Nav from "@/components/nav";
 
 export default function Home() {
   return (
-    <div className="">
-      <Nav />
+    <div className="relative w-screen">
+      <div className="absolute top-10 w-full">
+        <Nav />
+      </div>
       <div className="flex justify-center items-center w-screen h-screen">
         <div>
           <h1 className="text-[300px]">Offerly</h1>
