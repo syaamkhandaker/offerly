@@ -1,3 +1,5 @@
+import { triggerFilter } from "@/api";
+
 export default function SignedInNav(prop: { name: string }) {
   const handleSignOut = () => {
     localStorage.removeItem("fullName");
@@ -8,7 +10,7 @@ export default function SignedInNav(prop: { name: string }) {
     <div className="flex justify-between w-full px-10 items-center">
       <div className="text-xl">Hi, {prop.name}!</div>
       <div className="flex items-center gap-10">
-        <button>Refresh</button>
+        <button onClick={triggerFilter}>Refresh</button>
         <button
           className="border border-solid px-4 py-2 text-xl rounded-md"
           onClick={handleSignOut}

@@ -18,7 +18,10 @@ export default function SignInWithGoogleButton() {
       const jsonObj = await res.json();
       console.log(jsonObj);
       const fullName = jsonObj.name;
+      const email = jsonObj.email;
       localStorage.setItem("fullName", fullName);
+      localStorage.setItem("email", email);
+
       window.location.href = "/dashboard";
     },
   });
