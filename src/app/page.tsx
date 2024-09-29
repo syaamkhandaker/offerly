@@ -6,8 +6,8 @@ import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
-    const init = () => {
-      if (localStorage.getItem("accessToken")) {
+    const init = async () => {
+      if (localStorage.getItem("accessToken") !== null) {
         window.location.href = "/dashboard";
       }
     };
