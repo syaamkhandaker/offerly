@@ -1,17 +1,9 @@
 "use client";
 
-<<<<<<< HEAD
-import DashboardCard from "@/components/DashboardCard";
-import SignedInNav from "@/components/SignedInNav";
-import React from "react";
-import { EmblaOptionsType } from "embla-carousel";
-import EmblaCarousel from "@/components/EmbalaCarousel";
-=======
 import React, { useEffect } from "react";
 import { EmblaOptionsType } from "embla-carousel";
 import { SignedInNav, EmbalaCarousel } from "@/components";
 import { isAuthenticated } from "@/utils";
->>>>>>> main
 
 interface SlideInfo {
   name: string;
@@ -78,18 +70,13 @@ const Dashboard: React.FC<PropType> = (props) => {
           name={localStorage.getItem("fullName")?.split(" ")[0] || "User"}
         />
       </div>
-<<<<<<< HEAD
       <div className="flex flex-col justify-center items-center h-screen w-screen">
         <div className="text-center text-[65px] mt-[75px]">
           Upcoming Assessments
         </div>
         <div className="">
-          <EmblaCarousel slides={tempInfo} options={OPTIONS} />
+          <EmbalaCarousel slides={tempInfo} options={OPTIONS} />
         </div>
-=======
-      <div className="flex flex-col gap-10 justify-center items-center h-screen w-screen">
-        <EmbalaCarousel slides={tempInfo} options={OPTIONS} />
->>>>>>> main
       </div>
     </div>
   );
