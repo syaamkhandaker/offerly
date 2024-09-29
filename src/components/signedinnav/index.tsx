@@ -1,0 +1,13 @@
+export default function SignedInNav(prop: { name: String }) {
+  return (
+    <div className="flex justify-between w-full px-10 items-center">
+      <div className="text-xl">Hi, {prop.name}!</div>
+      <div className="flex items-center gap-10">
+        <button>Refresh</button>
+        <button className="border border-solid px-4 py-2 text-xl rounded-md">
+          Sign Out
+        </button>
+      </div>
+    </div>
+  );
+}
