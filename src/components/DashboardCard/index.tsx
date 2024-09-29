@@ -22,7 +22,7 @@ export default function DashboardCard(prop: {
   const daysLeftText = daysLeft <= 0 ? "Completed" : `${daysLeft}`;
 
   return (
-    <div className="border border-white p-10 rounded-lg flex justify-center items-center flex-col h-[700px] w-[1000px]">
+    <div className="border border-white p-10 rounded-lg flex justify-center items-center flex-col h-[700px] w-[1000px] bg-[#E2E2E2] text-black">
       <div className="text-[80px]">
         {prop.event} for {prop.company}
       </div>
@@ -45,7 +45,7 @@ export default function DashboardCard(prop: {
           <div>Date Due: {prop.date_due.toDateString()}</div>
         </div>
         <Link href={`/dashboard/${prop.i}`}>
-          <button className="border border-white px-2 py-1 rounded-lg">
+          <button className="border border-black px-4 py-2 rounded-lg text-2xl hover:bg-black hover:text-white transition">
             View More
           </button>
         </Link>
