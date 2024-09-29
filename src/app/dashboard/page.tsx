@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import { EmblaOptionsType } from "embla-carousel";
-import { SignedInNav, DashboardCard, EmbalaCarousel } from "@/components";
+import { SignedInNav, EmbalaCarousel } from "@/components";
 import { isAuthenticated } from "@/utils";
 
 interface SlideInfo {
@@ -58,7 +58,9 @@ const Dashboard: React.FC<PropType> = (props) => {
   return (
     <div>
       <div className="absolute top-10 w-full">
-        <SignedInNav name={localStorage.getItem("fullName") || "User"} />
+        <SignedInNav
+          name={localStorage.getItem("fullName")?.split(" ")[0] || "User"}
+        />
       </div>
       <div className="flex flex-col gap-10 justify-center items-center h-screen w-screen">
         <EmbalaCarousel slides={tempInfo} options={OPTIONS} />
