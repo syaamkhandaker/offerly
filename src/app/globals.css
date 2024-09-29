@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "../../node_modules/@mdxeditor/editor/dist/style.css";
 
 :root {
   --background: #ffffff;
@@ -125,4 +126,19 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.prose {
+  font-family: "Inter", sans-serif;
+  background-color: white;
+  max-width: 100%;
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+.editor {
+  color: var(--background);
+  background: var(--background);
 }
