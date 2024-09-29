@@ -1,17 +1,16 @@
-// import { GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
+"use client";
+
+import { useGoogleLogin } from "@react-oauth/google";
 
 export default function SignInWithGoogleButton() {
-  //   const login = useGoogleLogin({
-  //     onSuccess: (tokenResponse) => {
-  //       console.log(tokenResponse);
-  //       // Send the token to the server for verification and user session creation
-  //     },
-  //     onError: () => {
-  //       console.log("Login Failed");
-  //     },
-  //   });
+  const login = useGoogleLogin({
+    onSuccess: (tokenResponse) => console.log(tokenResponse),
+  });
   return (
-    <button className="border border-solid text-xl rounded-md px-4 py-2 border-white font-semibold">
+    <button
+      className="border border-solid text-xl rounded-md px-4 py-2 border-white font-semibold"
+      onClick={() => login()}
+    >
       Sign in with Google
     </button>
   );
