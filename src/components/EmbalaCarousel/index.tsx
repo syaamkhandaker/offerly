@@ -10,6 +10,8 @@ import useEmblaCarousel from "embla-carousel-react";
 import DashboardCard from "../DashboardCard";
 
 interface SlideInfo {
+  name: string;
+  email: string;
   src: string;
   event: string;
   company: string;

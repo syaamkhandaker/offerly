@@ -1,5 +1,9 @@
+import Link from "next/link";
+
 export default function DashboardCard(prop: {
   i: number;
+  name: string;
+  email: string;
   src: string;
   event: string;
   company: string;
@@ -15,16 +19,37 @@ export default function DashboardCard(prop: {
   };
 
   const daysLeft = calculateDaysLeft(prop.date_due);
+  const daysLeftText = daysLeft <= 0 ? "Completed" : `${daysLeft}`;
+
   return (
-    <div className="border border-white p-10 rounded-lg flex justify-center items-center flex-col h-[700px] w-full">
-      <div>Index: {prop.i}</div>
-      <div>Source: {prop.src}</div>
-      <div>Event: {prop.event}</div>
-      <div>Company: {prop.company}</div>
-      <div>Role: {prop.role}</div>
-      <div>Date Issued: {prop.date_issue.toDateString()}</div>
-      <div>Date Due: {prop.date_due.toDateString()}</div>
-      <div>Days Left: {daysLeft}</div>
+    <div className="border border-white p-10 rounded-lg flex justify-center items-center flex-col h-[700px] w-[1000px]">
+      <div className="text-[80px]">
+        {prop.event} for {prop.company}
+      </div>
+      {daysLeftText === "Completed" ? (
+        <div className="text-[50px]">{daysLeftText}</div>
+      ) : (
+        <div className="flex flex-col justify-center items-center">
+          <div className="text-[120px]">{daysLeftText}</div>
+          <div className="text-2xl">Days Left</div>
+        </div>
+      )}
+      <div className="flex flex-col text-center mt-[60px] gap-8">
+        <div className="text-3xl">
+          <div>{prop.role}</div>
+        </div>
+        <div className="text-3xl">
+          <div>Date Issued: {prop.date_issue.toDateString()}</div>
+        </div>
+        <div className="text-3xl">
+          <div>Date Due: {prop.date_due.toDateString()}</div>
+        </div>
+        <Link href={`/dashboard/${prop.i}`}>
+          <button className="border border-white px-2 py-1 rounded-lg">
+            View More
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
