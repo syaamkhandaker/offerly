@@ -1,13 +1,14 @@
 "use client";
 
 import { Nav, SignInWithGoogleButton } from "@/components";
+import { isAuthenticated } from "@/utils";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
     const init = async () => {
-      if (localStorage.getItem("accessToken") !== null) {
+      if (isAuthenticated()) {
         window.location.href = "/dashboard";
       }
     };
