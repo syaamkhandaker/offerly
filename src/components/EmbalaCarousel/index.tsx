@@ -1,13 +1,13 @@
 import React from "react";
 import { EmblaOptionsType } from "embla-carousel";
-import { DotButton, useDotButton } from "@/components/embalacarouseldotbutton";
+import { DotButton, useDotButton } from "@/components/EmbalaCarouselDotButton";
 import {
   PrevButton,
   NextButton,
   usePrevNextButtons,
-} from "@/components/embalacarouselarrowbuttons";
+} from "@/components/EmbalaCarouselArrowButtons";
 import useEmblaCarousel from "embla-carousel-react";
-import DashboardCard from "../dashboardcard/dashboardcard";
+import DashboardCard from "../DashboardCard";
 
 interface SlideInfo {
   src: string;

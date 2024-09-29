@@ -1,10 +1,9 @@
 "use client";
 
-import DashboardCard from "@/components/dashboardcard/dashboardcard";
-import SignedInNav from "@/components/signedinnav";
-import React from "react";
+import React, { useEffect } from "react";
 import { EmblaOptionsType } from "embla-carousel";
-import EmblaCarousel from "@/components/embalacarousel";
+import { SignedInNav, EmbalaCarousel } from "@/components";
+import { isAuthenticated } from "@/utils";
 
 interface SlideInfo {
   src: string;
@@ -21,6 +20,14 @@ type PropType = {
 };
 
 const Dashboard: React.FC<PropType> = (props) => {
+  useEffect(() => {
+    const init = () => {
+      if (!isAuthenticated()) {
+        window.location.href = "/";
+      }
+    };
+    init();
+  }, []);
   const tempInfo = [
     {
       src: "somesrc",
@@ -47,15 +54,16 @@ const Dashboard: React.FC<PropType> = (props) => {
       date_due: new Date(2024, 10, 29, 10, 0, 0),
     },
   ];
-  const userName = "Syaam";
   const OPTIONS: EmblaOptionsType = { loop: true };
   return (
     <div>
       <div className="absolute top-10 w-full">
-        <SignedInNav name={userName} />
+        <SignedInNav
+          name={localStorage.getItem("fullName")?.split(" ")[0] || "User"}
+        />
       </div>
       <div className="flex flex-col gap-10 justify-center items-center h-screen w-screen">
-        <EmblaCarousel slides={tempInfo} options={OPTIONS} />
+        <EmbalaCarousel slides={tempInfo} options={OPTIONS} />
       </div>
     </div>
   );
