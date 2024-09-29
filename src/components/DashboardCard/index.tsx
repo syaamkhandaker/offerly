@@ -14,7 +14,7 @@ export default function DashboardCard(prop: {
   const calculateDaysLeft = (dueDate: Date) => {
     const currentDate = new Date();
     const timeDifference = dueDate.getTime() - currentDate.getTime();
-    const daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+    const daysLeft = Math.ceil(timeDifference / (1000 * 60 * 60 * 24)); // Convert milliseconds to days
     return daysLeft;
   };
 

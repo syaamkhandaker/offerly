@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google-cloud/local-auth": "^3.0.1",
+    "@mdxeditor/editor": "^3.11.5",
+    "@react-oauth/google": "^0.12.1",
     "embla-carousel-react": "^8.3.0",
+    "googleapis": "^144.0.0",
     "next": "14.2.13",
     "react": "^18",
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

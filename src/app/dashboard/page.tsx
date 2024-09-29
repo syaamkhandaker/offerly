@@ -1,10 +1,17 @@
 "use client";
 
+<<<<<<< HEAD
 import DashboardCard from "@/components/DashboardCard";
 import SignedInNav from "@/components/SignedInNav";
 import React from "react";
 import { EmblaOptionsType } from "embla-carousel";
 import EmblaCarousel from "@/components/EmbalaCarousel";
+=======
+import React, { useEffect } from "react";
+import { EmblaOptionsType } from "embla-carousel";
+import { SignedInNav, EmbalaCarousel } from "@/components";
+import { isAuthenticated } from "@/utils";
+>>>>>>> main
 
 interface SlideInfo {
   name: string;
@@ -23,6 +30,14 @@ type PropType = {
 };
 
 const Dashboard: React.FC<PropType> = (props) => {
+  useEffect(() => {
+    const init = () => {
+      if (!isAuthenticated()) {
+        window.location.href = "/";
+      }
+    };
+    init();
+  }, []);
   const tempInfo = [
     {
       name: "Syaam1",
@@ -55,13 +70,15 @@ const Dashboard: React.FC<PropType> = (props) => {
       date_due: new Date(2024, 10, 29, 10, 0, 0),
     },
   ];
-  const userName = "Syaam";
   const OPTIONS: EmblaOptionsType = { loop: true };
   return (
     <div>
       <div className="absolute top-10 w-full">
-        <SignedInNav name={userName} />
+        <SignedInNav
+          name={localStorage.getItem("fullName")?.split(" ")[0] || "User"}
+        />
       </div>
+<<<<<<< HEAD
       <div className="flex flex-col justify-center items-center h-screen w-screen">
         <div className="text-center text-[65px] mt-[75px]">
           Upcoming Assessments
@@ -69,6 +86,10 @@ const Dashboard: React.FC<PropType> = (props) => {
         <div className="">
           <EmblaCarousel slides={tempInfo} options={OPTIONS} />
         </div>
+=======
+      <div className="flex flex-col gap-10 justify-center items-center h-screen w-screen">
+        <EmbalaCarousel slides={tempInfo} options={OPTIONS} />
+>>>>>>> main
       </div>
     </div>
   );
