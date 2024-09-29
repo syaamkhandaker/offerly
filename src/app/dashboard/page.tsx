@@ -1,10 +1,10 @@
 "use client";
 
-import DashboardCard from "@/components/dashboardcard/dashboardcard";
-import SignedInNav from "@/components/signedinnav";
+import DashboardCard from "@/components/DashboardCard";
+import SignedInNav from "@/components/SignedInNav";
 import React from "react";
 import { EmblaOptionsType } from "embla-carousel";
-import EmblaCarousel from "@/components/embalacarousel";
+import EmblaCarousel from "@/components/EmbalaCarousel";
 
 interface SlideInfo {
   name: string;

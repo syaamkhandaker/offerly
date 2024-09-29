@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import SignedInNav from "@/components/signedinnav";
+import SignedInNav from "@/components/SignedInNav";
 
 export default function DashBoardPage() {
   const BackButton = () => {
