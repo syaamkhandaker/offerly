@@ -1,7 +1,18 @@
+"use client";
+
 import { Nav, SignInWithGoogleButton } from "@/components";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const init = () => {
+      if (localStorage.getItem("accessToken")) {
+        window.location.href = "/dashboard";
+      }
+    };
+    init();
+  }, []);
   return (
     <GoogleOAuthProvider clientId="494862578435-qc80r15jvnue6e0g2lovol0iao5mo9ei.apps.googleusercontent.com">
       <div className="w-screen h-screen">
