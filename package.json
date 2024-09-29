@@ -9,11 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
     "@react-oauth/google": "^0.12.1",
-    "framer-motion": "^11.9.0",
     "embla-carousel-react": "^8.3.0",
     "next": "14.2.13",
     "react": "^18",
