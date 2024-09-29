@@ -24,7 +24,7 @@ export default function SignInWithGoogleButton() {
   });
   return (
     <button
-      className="border border-solid text-xl rounded-md px-4 py-2 border-white font-semibold"
+      className="border border-solid text-xl rounded-md px-4 py-2 border-white font-semibold hover:bg-gray-200 hover:text-black transition"
       onClick={async () => {
         login();
       }}

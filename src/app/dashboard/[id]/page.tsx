@@ -2,6 +2,9 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import SignedInNav from "@/components/SignedInNav";
+import { MDXEditor, MDXEditorMethods } from "@mdxeditor/editor";
+import Editor from "@/components/mdeditor/MDXEditor";
+import { useRef } from "react";
 
 export default function DashBoardPage() {
   const BackButton = () => {
@@ -41,14 +44,22 @@ export default function DashBoardPage() {
   //const daysLeft = calculateDaysLeft(prop.date_due);
   //const daysLeftText = daysLeft <= 0 ? "Completed" : `${daysLeft}`;
 
+  const editorRef = useRef<MDXEditorMethods | null>(null);
+  const initialMarkdown =
+    "## Welcome to the Editor\n\nYou can start editing here.";
+
   return (
     <div>
       <div className="absolute top-10 w-full">
-        <SignedInNav name={"Syaam"} />
+        <SignedInNav
+          name={localStorage.getItem("fullName")?.split(" ")[0] || "User"}
+        />
       </div>
       <div className="flex flex-col h-screen w-screen mt-24 p-10">
         <Link href={backURL}>
-          <button>{"<-"} Back</button>
+          <button className="border border-white rounded-lg px-4 py-2 hover:bg-gray-200 hover:text-black transition">
+            Back
+          </button>
         </Link>
         <div className="flex flex-col items-center w-full">
           <div className="text-[80px]">
@@ -72,7 +83,7 @@ export default function DashBoardPage() {
           </div>
           <div className="flex flex-col justify-center items-center p-4 gap-6 mt-12">
             <div className="text-center text-3xl">Suggested Resources: </div>
-            <div className="list-disc list-inside text-xl w-full flex flex-col text-center gap-6">
+            <div className="list-disc list-inside text-xl flex flex-col text-center gap-6 w-[400px]">
               {resources.map((resource, index) => (
                 <Link
                   key={index}
@@ -86,9 +97,9 @@ export default function DashBoardPage() {
                 </Link>
               ))}
             </div>
-            <div className="text-[70px] border border-white h-48 flex justify-center items-center">
-              Some Text Editor
-            </div>
+          </div>
+          <div className="flex w-full justify-center items-center my-12">
+            <Editor markdown={initialMarkdown} editorRef={editorRef} />
           </div>
         </div>
       </div>
